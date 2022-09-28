@@ -4,6 +4,7 @@ import { ProductHeaderComponent } from './products/product-header/product-header
 import { ProductBasketComponent } from './products/product-basket/product-basket.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ProductDataComponent } from './products/product-data/product-data.component';
 
 
 
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ProductHeaderComponent,
     ProductBasketComponent,
+    ProductDataComponent
  
   ],
   imports: [

@@ -11,7 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerNewComponent implements OnInit {
 
-  constructor(private _customerData:DataservicesService, private router: Router, private route: ActivatedRoute) { }
+  // id:any;
+  constructor(private _customerData:DataservicesService, private router: Router, private route: ActivatedRoute) { 
+    // this.id=this.route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
   }
@@ -19,7 +22,10 @@ export class CustomerNewComponent implements OnInit {
 
   onSubmit(form: NgForm){
     this._customerData.setdata(form.value);
-    // this.router.navigate(['nextpage']);
+
+    // this.router.navigate(['/nextpage',id]),{relativeTo:this.route}
+    
+    
   }
 
 

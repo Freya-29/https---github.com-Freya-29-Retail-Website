@@ -15,7 +15,7 @@ export class ProductHeaderComponent implements OnInit {
   arr!: Customer;
   localItem!: string | null;
 
-  constructor(private route:ActivatedRoute,private _getdata:DataservicesService){
+  constructor(private route:ActivatedRoute,private _getdata:DataservicesService,private router: Router){
 
     this.id=this.route.snapshot.params['id'];
 
@@ -23,7 +23,7 @@ export class ProductHeaderComponent implements OnInit {
     console.log(this.localItem);
     
     if(this.localItem == null){
-      // this.arr =  new Customer[0,'','',0,0,'']
+      
       console.log('Empty')
       
     }else{
@@ -36,7 +36,10 @@ export class ProductHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     
-    
+  }
+
+  goBack(){
+    this.router.navigate(['goBack']),{relativeTo:this.route}
   }
 
   
