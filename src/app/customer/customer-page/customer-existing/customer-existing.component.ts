@@ -42,9 +42,12 @@ export class CustomerExistingComponent implements OnInit {
   }
 
   onClick(id: number){
-
-    this.router.navigate(['/nextpage', id]),{relativeTo:this.route}
+    // this._getdata.sendId(id)
+    this.router.navigate(['/nextpage', id]);
+    
   }
+
+  
 
   
 

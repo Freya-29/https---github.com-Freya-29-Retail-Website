@@ -11,20 +11,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerNewComponent implements OnInit {
 
-  // id:any;
+  id:any;
+  // localItem:
   constructor(private _customerData:DataservicesService, private router: Router, private route: ActivatedRoute) { 
-    // this.id=this.route.snapshot.params['id'];
-  }
 
+    
+  }
+  
+  
   ngOnInit(): void {
   }
 
 
   onSubmit(form: NgForm){
     this._customerData.setdata(form.value);
+  //  this.localItem = localStorage.getItem("customerData");
 
-    // this.router.navigate(['/nextpage',id]),{relativeTo:this.route}
+    // this.router.navigate(['../','/nextpage',this.id]),{relativeTo:this.route}
+
+    this.router.navigate(['../','existing'],{relativeTo:this.route})
     
+    
+  }
+
+  onDone(){
     
   }
 

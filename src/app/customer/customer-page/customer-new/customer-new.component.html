@@ -8,7 +8,7 @@
                 <div class="form-group">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" name="name" id="name" class="form-control" placeholder="name"
-                  ngModel>
+                  ngModel required>
                 </div>
               </div>
             </div>
@@ -18,8 +18,9 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com"
-                ngModel>
+                <input type="email" class="form-control" name="email" id="email" email placeholder="name@example.com"
+                ngModel required>
+                <!-- <span class="help-back" *ngIf="!email.valid && email.touched"> Please enter a valid information </span> -->
                 </div>
               </div>
             </div>
@@ -30,7 +31,7 @@
                 <div class="form-group">
                   <label for="phoneNo" class="form-label">phone No.</label>
                   <input type="text" id="phoneNo" name="phoneNo" class="form-control"
-                  ngModel>
+                  ngModel required>
                 </div>
               </div>
             </div>
@@ -41,7 +42,7 @@
                 <div class="form-group">
                   <label for="dob" class="form-label">Date Of Birth</label>
                   <input type="text" id="dob" name="bod" class="form-control" placeholder="DD/MM/YYYY"
-                  ngModel>
+                  ngModel required>
                 </div>
               </div>
             </div>
@@ -52,7 +53,7 @@
                 <div class="form-group">
                   <label for="address" class="form-label">Address</label>
                   <input type="text" id="address" name="address" class="form-control"
-                  ngModel>
+                  ngModel required>
                 </div>
               </div>
             </div>
@@ -61,7 +62,7 @@
             <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <button class="button" type="submit" class="button1 btn btn-primary">Done</button>  
+                    <button class="button" type="submit" class="button1 btn btn-primary" (click)="onDone()" [disabled]="!myForm.valid">Done</button>  
                   </div>
                 </div>
               </div>

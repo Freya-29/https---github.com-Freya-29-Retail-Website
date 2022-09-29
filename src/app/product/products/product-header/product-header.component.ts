@@ -10,7 +10,7 @@ import { DataservicesService } from 'src/app/service/dataservices.service';
 })
 export class ProductHeaderComponent implements OnInit {
 
-  id:any;
+  id:number;
   
   arr!: Customer;
   localItem!: string | null;
@@ -18,7 +18,8 @@ export class ProductHeaderComponent implements OnInit {
   constructor(private route:ActivatedRoute,private _getdata:DataservicesService,private router: Router){
 
     this.id=this.route.snapshot.params['id'];
-
+    
+    
     this.localItem = localStorage.getItem("customerData");
     console.log(this.localItem);
     
@@ -34,13 +35,21 @@ export class ProductHeaderComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    // this._getdata.customerId
+    // .subscribe(
+    //   (id: number) =>{
+    //     console.log('fetched id' , id)
+    //     // this.id = id
+    //   })
     
   }
 
   goBack(){
-    this.router.navigate(['goBack']),{relativeTo:this.route}
+    this.router.navigate(['customer-info','existing'])  
   }
+
+
 
   
 

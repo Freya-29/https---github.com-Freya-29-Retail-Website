@@ -1,4 +1,4 @@
-.row{
+.row-basket{
     margin: auto;
   width: 15%;
   height: 50px;
@@ -6,6 +6,7 @@
   /* padding: 10px; */
 }
 
-.card-header{
-    font-size: 18px;
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
 }

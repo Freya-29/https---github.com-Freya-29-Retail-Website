@@ -14,9 +14,7 @@ export class ProductBasketComponent implements OnInit {
   }
 
   productData(){
-    this.router.navigate(['productData']),{relativeTo:this.route};
- 
-    
+    this.router.navigate(['productData'],{relativeTo:this.route});
   }
 
 }

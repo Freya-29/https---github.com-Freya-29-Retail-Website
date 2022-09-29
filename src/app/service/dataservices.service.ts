@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Customer } from '../customer/customer.model';
 
 @Injectable({
@@ -31,6 +32,7 @@ export class DataservicesService {
 
   constructor() { }
 
+  customerId = new Subject<number>();
 
   setdata(value:Customer){
     const data = value;
@@ -44,5 +46,15 @@ export class DataservicesService {
   // getdata(){
   //   this.arr = localStorage.getItem("customerData")
   // }
+
+ 
+  sendId(index:number){
+      this.customerId.next(index);
+  }
+
+  
+
+
+
  
 }
