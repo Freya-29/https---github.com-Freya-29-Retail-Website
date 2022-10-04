@@ -5,7 +5,8 @@ import { ProductHeaderComponent } from "./products/product-header/product-header
 
 const routes: Routes = [    
     {path: 'nextpage/:id', component:ProductHeaderComponent},
-    {path: 'nextpage/:id/productData', component:ProductDataComponent}
+    {path: 'nextpage/:id/productData', component:ProductDataComponent},
+    
   ];
 @NgModule({
     imports : [
