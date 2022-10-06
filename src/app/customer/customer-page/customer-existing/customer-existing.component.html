@@ -23,6 +23,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">email</th>
                 <th scope="col">Phone No.</th>
+                <th scope="col">Date & Time</th>
+            
               </tr>
             </thead>
             <tbody>
@@ -34,6 +36,8 @@
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
                   <td>{{ customer.phoneNo }}</td>
+                  <td>{{customer.dateTime | date:'dd.MM.yyyy H:mm:ss' }}</td>
+                 
                 </tr>
               
             </tbody>

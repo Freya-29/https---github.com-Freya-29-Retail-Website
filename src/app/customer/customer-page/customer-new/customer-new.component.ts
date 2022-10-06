@@ -12,11 +12,17 @@ import { ActivatedRoute } from '@angular/router';
 export class CustomerNewComponent implements OnInit {
 
   id:any;
+
+  
+
   // localItem:
   constructor(private _customerData:DataservicesService, private router: Router, private route: ActivatedRoute) { 
 
     
+    
   }
+
+
   
   
   ngOnInit(): void {
@@ -30,6 +36,10 @@ export class CustomerNewComponent implements OnInit {
     // this.router.navigate(['../','/nextpage',this.id]),{relativeTo:this.route}
 
     this.router.navigate(['../','existing'],{relativeTo:this.route})
+
+    // localStorage.setItem("Date&Time",JSON.stringify(this.jstoday));
+    // console.log(this.jstoday);
+    
     
     
   }

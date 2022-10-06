@@ -18,10 +18,7 @@ export class ProductBasketComponent implements OnInit {
     this.router.navigate(['productData'],{relativeTo:this.route});
   }
 
-  forDelete(id:number){
-    this.getCartDetails.splice(id, 1);
-
-  }
+  
 
   getCartDetails:any=[];
   CartDetails(){
@@ -30,6 +27,12 @@ export class ProductBasketComponent implements OnInit {
       console.log(this.CartDetails);
       
     }
+  }
+
+  forDelete(id:number){ 
+    this.getCartDetails.splice(id, 1);
+    localStorage.setItem('localCart',JSON.stringify(this.getCartDetails));
+
   }
 
 }

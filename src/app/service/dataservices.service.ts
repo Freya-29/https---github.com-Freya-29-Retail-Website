@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Customer } from '../customer/customer.model';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataservicesService {
+
+
+  
+  public jstoday: string='';
 
   customers = [
     {
@@ -27,25 +32,35 @@ export class DataservicesService {
   phoneNo : 65476580
 }];
 
-  arr:{id:number, name : string ,email: string, phoneNo: number, dob : number, address: string}[] = [];
+  arr:{id:number, name : string ,email: string, phoneNo: number, dob : number, address: string, dateTime: string}[] = [];
 //  arr! : Customer[];
 
-  constructor() { }
+  constructor() {
+  }
 
+   
   customerId = new Subject<number>();
 
   setdata(value:Customer){
-    const data = value;
+    this.jstoday = new Date().toString().slice(0,23);
+    let data = {
+      id : value.id,
+      name: value.name,
+      email: value.email, 
+      phoneNo:value.phoneNo, 
+      dob:value.dob , 
+      address:value.address, 
+      dateTime:this.jstoday
+    }
+
+    console.log(this.jstoday);
+    
     
     this.arr.push(data)
     console.log(this.arr);
 
     localStorage.setItem("customerData",JSON.stringify(this.arr));
   }
-
-  // getdata(){
-  //   this.arr = localStorage.getItem("customerData")
-  // }
 
  
   sendId(index:number){

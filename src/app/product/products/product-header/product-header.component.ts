@@ -46,9 +46,12 @@ export class ProductHeaderComponent implements OnInit {
   }
 
   goBack(){
-    this.router.navigate(['customer-info','existing'])  
+    this.router.navigate(['../','customer-page','existing'])  
   }
 
+  edit(){
+    this.router.navigate(['../','customer-page','new'])
+  }
 
 
   
