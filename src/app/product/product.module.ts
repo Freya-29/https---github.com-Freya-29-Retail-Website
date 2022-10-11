@@ -5,6 +5,8 @@ import { ProductBasketComponent } from './products/product-basket/product-basket
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProductDataComponent } from './products/product-data/product-data.component';  
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -17,7 +19,11 @@ import { ProductDataComponent } from './products/product-data/product-data.compo
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 800
+    })
   ]
 })
 export class ProductModule { }

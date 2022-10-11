@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login-user',
@@ -8,13 +10,15 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class LoginUserComponent implements OnInit {
   loginData: any;
+  users: any;
+  result: any;
 
   constructor(private router: Router, private route: ActivatedRoute) { 
 
     this.loginData = [
       {
         email: 'freya@gmail.com',
-        password: 'f@123'
+        password: 'freya@123'
       },
       {
         email: 'abc@gmail.com',
@@ -22,7 +26,7 @@ export class LoginUserComponent implements OnInit {
       }];
   
       localStorage.setItem("logindata",JSON.stringify(this.loginData));
-      console.log(this.loginData);
+      // console.log(this.loginData);
       
   }
   
@@ -30,12 +34,22 @@ export class LoginUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  onSubmit(form: NgForm){
+    const data = form.value;
+    this.users = JSON.parse(localStorage.getItem("logindata")|| "[]");
+    this.result = this.users.find((customer: { email: string; password: string; }) =>
+    customer.email === data.email && customer.password === data.password);
 
-  signin(){
-
+    if(this.result){
+      this.router.navigate(['customer-page'])
+      console.log('success');
+      
+    }
+    else{
+      console.log('Credentials not exist');
+      
+    }
     
-    this.router.navigate(['customer-page'])
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from '../products.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-data',
@@ -12,9 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductDataComponent implements OnInit {
   id : number;
 
-  constructor(private router: Router,private route:ActivatedRoute) { 
+  constructor(private router: Router,private route:ActivatedRoute, private toastr: ToastrService) { 
     this.id=this.route.snapshot.params['id'];
   }
+
 
   ngOnInit(): void {
   }
@@ -71,6 +73,8 @@ export class ProductDataComponent implements OnInit {
       }
     }
 
+    this.toastr.success(category.quantity + "items added");
+    
 
     }
     

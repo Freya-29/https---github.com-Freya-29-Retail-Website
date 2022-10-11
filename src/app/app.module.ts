@@ -10,6 +10,7 @@ import { ProductModule } from './product/product.module';
 import { ProductRoutingModule } from './product/product.routing.module';
 import { DataservicesService } from './service/dataservices.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     customerRoutingModule,
     ProductModule,
     ProductRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LoginModule
   ],
   providers: [
     DataservicesService

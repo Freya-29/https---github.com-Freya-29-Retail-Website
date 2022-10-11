@@ -23,4 +23,8 @@ export class CustomerPageComponent implements OnInit {
     this.router.navigate(['existing'],{relativeTo:this.route})
   }
 
+  gotoLogin(){
+    this.router.navigate(['../customer-info'])
+  }
+
 }
