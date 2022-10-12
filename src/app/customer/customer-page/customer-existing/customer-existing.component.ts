@@ -3,9 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataservicesService } from 'src/app/service/dataservices.service';
 import { Customer } from '../../customer.model';
 
-import { CustomerNewComponent } from '../customer-new/customer-new.component';
-
-
 @Component({
   selector: 'app-customer-existing',
   templateUrl: './customer-existing.component.html',
@@ -20,11 +17,8 @@ export class CustomerExistingComponent implements OnInit {
   
   constructor(private router:Router,private route:ActivatedRoute, private _getdata:DataservicesService) { 
 
-
-   
-
     this.localItem = localStorage.getItem("customerData");
-    console.log(this.localItem);
+    // console.log(this.localItem);
     
     if(this.localItem == null){
       this.arr = []
@@ -32,7 +26,7 @@ export class CustomerExistingComponent implements OnInit {
     }else{
       
       this.arr = JSON.parse(this.localItem);
-      console.log(this.arr);
+      // console.log(this.arr);
       
     }
    
@@ -52,7 +46,7 @@ export class CustomerExistingComponent implements OnInit {
 
   onClick(id: number){
     // this._getdata.sendId(id)
-    this.router.navigate(['/nextpage', id]);
+    this.router.navigate(['products/nextpage', id]);
   }  
 
 }

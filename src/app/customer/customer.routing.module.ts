@@ -1,35 +1,29 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoginUserComponent } from "../login/login-user/login-user.component";
-import { ProductBasketComponent } from "../product/products/product-basket/product-basket.component";
-import { ProductDataComponent } from "../product/products/product-data/product-data.component";
-import { ProductHeaderComponent } from "../product/products/product-header/product-header.component";
+import { AuthGuard } from "../auth.guard";
 import { CustomerExistingComponent } from "./customer-page/customer-existing/customer-existing.component";
 import { CustomerNewComponent } from "./customer-page/customer-new/customer-new.component";
-
 import { CustomerPageComponent } from "./customer-page/customer-page.component";
 
-const routes: Routes = [
-  { path : '',redirectTo:'customer-info', pathMatch:'full'},
-  { path : 'customer-info',  component: LoginUserComponent},
-    { path : 'customer-page',  component: CustomerPageComponent, children:[
-      {path: 'new', component: CustomerNewComponent},
-      {path : 'existing', component: CustomerExistingComponent},
-      
-    ]},
-   
-    // {path: 'nextpage/:id', component:ProductHeaderComponent, children:[
-    //   {path: 'productData', component:ProductDataComponent}
-    // ]},
-  
+const proroutes: Routes = [
+  {path: '', children:[
+  { path : 'customer-page',canActivate:[AuthGuard],  component: CustomerPageComponent, children:[
+    {path: 'new', component: CustomerNewComponent},
+    {path : 'existing', component: CustomerExistingComponent},
+  ]},
+]}
   ];
 @NgModule({
     imports : [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(proroutes)
     ],
     exports : [
         RouterModule
     ]
 })
 
-export class customerRoutingModule {}
+export class customerRoutingModule {
+  constructor(){
+    console.log('customer routing Module loaded');   
+  }
+}

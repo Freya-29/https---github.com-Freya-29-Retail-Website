@@ -35,8 +35,9 @@ export class DataservicesService {
   arr:{id:number, name : string ,email: string, phoneNo: number, dob : number, address: string, dateTime: string}[] = [];
 //  arr! : Customer[];
 
-  constructor() {
-  }
+constructor(){
+  console.log('service Module loaded');   
+}
 
    
   customerId = new Subject<number>();

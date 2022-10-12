@@ -21,7 +21,7 @@ export class ProductHeaderComponent implements OnInit {
     
     
     this.localItem = localStorage.getItem("customerData");
-    console.log(this.localItem);
+    // console.log(this.localItem);
     
     if(this.localItem == null){
       
@@ -30,7 +30,7 @@ export class ProductHeaderComponent implements OnInit {
     }else{
       
       this.arr = JSON.parse(this.localItem)[this.id];
-      console.log(this.arr);
+      // console.log(this.arr);
       
     }
   }
@@ -46,11 +46,11 @@ export class ProductHeaderComponent implements OnInit {
   }
 
   goBack(){
-    this.router.navigate(['../','customer-page','existing'])  
+    this.router.navigate(['../','customer', 'customer-page', 'existing'])  
   }
 
   edit(){
-    this.router.navigate(['../','customer-page','new'])
+    this.router.navigate(['../','customer','customer-page' ,'new'])
   }
 
 

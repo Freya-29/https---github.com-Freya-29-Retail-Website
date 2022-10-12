@@ -25,7 +25,7 @@ export class ProductBasketComponent implements OnInit {
   CartDetails(){
     if(localStorage.getItem('localCart')){
       this.getCartDetails = JSON.parse(localStorage.getItem('localCart') || "[]");
-      console.log(this.CartDetails);      
+      // console.log(this.CartDetails);      
     }
   }
 

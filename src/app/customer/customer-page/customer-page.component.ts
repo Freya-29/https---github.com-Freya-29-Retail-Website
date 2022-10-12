@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-customer-page',
   templateUrl: './customer-page.component.html',
@@ -24,7 +25,11 @@ export class CustomerPageComponent implements OnInit {
   }
 
   gotoLogin(){
+    localStorage.removeItem('loginKey');
     this.router.navigate(['../customer-info'])
   }
-
 }
+
+  
+
+

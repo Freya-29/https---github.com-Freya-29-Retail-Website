@@ -22,8 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 800
+      timeOut: 800,
+      preventDuplicates: true
     })
   ]
 })
-export class ProductModule { }
+export class ProductModule {
+  
+ }

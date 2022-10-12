@@ -31,7 +31,7 @@ export class ProductDataComponent implements OnInit {
   ]
 
   gotoBascket(){
-    this.router.navigate(['/nextpage', this.id]);
+    this.router.navigate(['products/nextpage', this.id]);
   }
 
   inc(product:any){
@@ -73,9 +73,10 @@ export class ProductDataComponent implements OnInit {
       }
     }
 
-    this.toastr.success(category.quantity + "items added");
-    
-
+    // this.toastr.success(category.quantity + "items added");
+    this.toastr.success('',category.quantity + "items added", {
+      positionClass: 'toast-top-right' 
+   });
     }
     
    

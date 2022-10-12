@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-user',
@@ -13,7 +13,7 @@ export class LoginUserComponent implements OnInit {
   users: any;
   result: any;
 
-  constructor(private router: Router, private route: ActivatedRoute) { 
+  constructor(private router: Router, private route: ActivatedRoute, private toastr: ToastrService) { 
 
     this.loginData = [
       {
@@ -41,12 +41,11 @@ export class LoginUserComponent implements OnInit {
     customer.email === data.email && customer.password === data.password);
 
     if(this.result){
-      this.router.navigate(['customer-page'])
-      console.log('success');
-      
+      this.router.navigate(['customer/customer-page'])
+      localStorage.setItem("loginKey",JSON.stringify(true));
     }
     else{
-      console.log('Credentials not exist');
+      this.toastr.error("Please enter valid data");
       
     }
     

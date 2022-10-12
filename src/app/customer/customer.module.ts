@@ -7,6 +7,7 @@ import { CustomerNewComponent } from './customer-page/customer-new/customer-new.
 import { FilterPipe } from './customer-page/customer-existing/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
 
 
@@ -20,10 +21,13 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    Ng2FilterPipeModule,
   ],
   exports:[
     CustomerPageComponent
   ]
 })
-export class CustomerModule { }
+export class CustomerModule { 
+  
+}
